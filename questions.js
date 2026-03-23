@@ -1,394 +1,178 @@
 // ============================================================
 // questions.js — Football Quiz Question Bank
 // 3 difficulty levels × 3 languages (EN, FR, AR)
-// Add or edit questions here easily.
+// Le jeu choisit 8 questions aléatoires à chaque partie
 // ============================================================
 
 const QUESTIONS = {
   en: {
     easy: [
-      {
-        q: "Which country won the 2022 FIFA World Cup?",
-        options: ["France", "Brazil", "Argentina", "Germany"],
-        answer: 2
-      },
-      {
-        q: "How many players are on a standard football team on the pitch?",
-        options: ["9", "10", "11", "12"],
-        answer: 2
-      },
-      {
-        q: "Which club is known as 'The Red Devils'?",
-        options: ["Arsenal", "Liverpool", "Manchester United", "AC Milan"],
-        answer: 2
-      },
-      {
-        q: "Who is the all-time top scorer in FIFA World Cup history?",
-        options: ["Pelé", "Miroslav Klose", "Ronaldo (Brazil)", "Just Fontaine"],
-        answer: 1
-      },
-      {
-        q: "In which country is the 'Santiago Bernabéu' stadium located?",
-        options: ["Portugal", "Argentina", "Spain", "Italy"],
-        answer: 2
-      },
-      {
-        q: "Which player is nicknamed 'CR7'?",
-        options: ["Ronaldinho", "Cristiano Ronaldo", "Carlos Roa", "Carlos Valderrama"],
-        answer: 1
-      },
-      {
-        q: "How long is a standard football match (excluding extra time)?",
-        options: ["80 minutes", "85 minutes", "90 minutes", "95 minutes"],
-        answer: 2
-      },
-      {
-        q: "Which country has won the most FIFA World Cup titles?",
-        options: ["Germany", "Argentina", "Italy", "Brazil"],
-        answer: 3
-      }
+      { q: "Which country won the 2022 FIFA World Cup?", options: ["France","Brazil","Argentina","Germany"], answer: 2 },
+      { q: "How many players are on a football team on the pitch?", options: ["9","10","11","12"], answer: 2 },
+      { q: "Which club is known as 'The Red Devils'?", options: ["Arsenal","Liverpool","Manchester United","AC Milan"], answer: 2 },
+      { q: "Who is the all-time top scorer in World Cup history?", options: ["Pelé","Miroslav Klose","Ronaldo (Brazil)","Just Fontaine"], answer: 1 },
+      { q: "In which country is the Santiago Bernabéu stadium?", options: ["Portugal","Argentina","Spain","Italy"], answer: 2 },
+      { q: "Which player is nicknamed 'CR7'?", options: ["Ronaldinho","Cristiano Ronaldo","Carlos Roa","Carlos Valderrama"], answer: 1 },
+      { q: "How long is a standard football match (no extra time)?", options: ["80 min","85 min","90 min","95 min"], answer: 2 },
+      { q: "Which country has won the most FIFA World Cup titles?", options: ["Germany","Argentina","Italy","Brazil"], answer: 3 },
+      { q: "What shape is a football pitch?", options: ["Square","Circle","Rectangle","Triangle"], answer: 2 },
+      { q: "Which country does Kylian Mbappé play for?", options: ["Belgium","Portugal","France","Spain"], answer: 2 },
+      { q: "What colors are the referee's cards?", options: ["Red and Blue","Yellow and Red","Green and Yellow","Orange and Red"], answer: 1 },
+      { q: "Which country does Lionel Messi play for?", options: ["Brazil","Uruguay","Chile","Argentina"], answer: 3 },
+      { q: "What is a 'hat-trick' in football?", options: ["3 goals by one player","3 assists","3 yellow cards","3 saves"], answer: 0 },
+      { q: "What is the name of the Real Madrid vs Barcelona derby?", options: ["Derby de Madrid","El Clásico","Catalan Derby","La Manita"], answer: 1 },
+      { q: "Which team won the first FIFA World Cup in 1930?", options: ["Brazil","Argentina","Uruguay","Italy"], answer: 2 },
+      { q: "How many substitutes can sit on the bench in most competitions?", options: ["5","7","9","11"], answer: 1 },
     ],
     medium: [
-      {
-        q: "Which club did Lionel Messi join after leaving Barcelona in 2021?",
-        options: ["Juventus", "PSG", "Manchester City", "Bayern Munich"],
-        answer: 1
-      },
-      {
-        q: "What year was FIFA founded?",
-        options: ["1900", "1904", "1910", "1920"],
-        answer: 1
-      },
-      {
-        q: "Which nation hosted the 2018 FIFA World Cup?",
-        options: ["Brazil", "Germany", "Russia", "France"],
-        answer: 2
-      },
-      {
-        q: "Who won the Ballon d'Or in 2023?",
-        options: ["Kylian Mbappé", "Erling Haaland", "Lionel Messi", "Karim Benzema"],
-        answer: 2
-      },
-      {
-        q: "Which club has won the most UEFA Champions League titles?",
-        options: ["Barcelona", "Bayern Munich", "Real Madrid", "AC Milan"],
-        answer: 2
-      },
-      {
-        q: "What is the maximum number of substitutions allowed in a standard match?",
-        options: ["3", "4", "5", "6"],
-        answer: 2
-      },
-      {
-        q: "Who scored the 'Hand of God' goal in 1986?",
-        options: ["Pelé", "Diego Maradona", "Michel Platini", "Gary Lineker"],
-        answer: 1
-      },
-      {
-        q: "Which English club is nicknamed 'The Gunners'?",
-        options: ["Chelsea", "Tottenham", "Arsenal", "West Ham"],
-        answer: 2
-      }
+      { q: "Which club did Messi join after leaving Barcelona in 2021?", options: ["Juventus","PSG","Manchester City","Bayern Munich"], answer: 1 },
+      { q: "What year was FIFA founded?", options: ["1900","1904","1910","1920"], answer: 1 },
+      { q: "Which nation hosted the 2018 FIFA World Cup?", options: ["Brazil","Germany","Russia","France"], answer: 2 },
+      { q: "Who won the Ballon d'Or in 2023?", options: ["Kylian Mbappé","Erling Haaland","Lionel Messi","Karim Benzema"], answer: 2 },
+      { q: "Which club has the most UEFA Champions League titles?", options: ["Barcelona","Bayern Munich","Real Madrid","AC Milan"], answer: 2 },
+      { q: "Maximum substitutions allowed in a standard match?", options: ["3","4","5","6"], answer: 2 },
+      { q: "Who scored the 'Hand of God' goal in 1986?", options: ["Pelé","Diego Maradona","Michel Platini","Gary Lineker"], answer: 1 },
+      { q: "Which English club is nicknamed 'The Gunners'?", options: ["Chelsea","Tottenham","Arsenal","West Ham"], answer: 2 },
+      { q: "Who won the 2021-22 UEFA Champions League?", options: ["Liverpool","Manchester City","Chelsea","Real Madrid"], answer: 3 },
+      { q: "In which country was Cristiano Ronaldo born?", options: ["Spain","Brazil","Portugal","Italy"], answer: 2 },
+      { q: "Which club is known as 'The Old Lady'?", options: ["AC Milan","Inter Milan","Juventus","Lazio"], answer: 2 },
+      { q: "How many times has France won the FIFA World Cup?", options: ["1","2","3","4"], answer: 1 },
+      { q: "Who is the all-time top scorer for Real Madrid?", options: ["Raúl","Benzema","Ronaldo","Zidane"], answer: 2 },
+      { q: "Which stadium is home to FC Barcelona?", options: ["Wanda Metropolitano","Camp Nou","Bernabéu","San Siro"], answer: 1 },
+      { q: "Which African country reached the 2022 World Cup semi-finals?", options: ["Nigeria","Senegal","Morocco","Cameroon"], answer: 2 },
+      { q: "Who was the top scorer at the 2018 FIFA World Cup?", options: ["Messi","Ronaldo","Harry Kane","Lukaku"], answer: 2 },
     ],
     hard: [
-      {
-        q: "Which goalkeeper holds the record for most clean sheets in Premier League history?",
-        options: ["Peter Schmeichel", "David Seaman", "Petr Čech", "Edwin van der Sar"],
-        answer: 2
-      },
-      {
-        q: "In what year did AFC Ajax win their last UEFA Champions League title?",
-        options: ["1992", "1995", "1997", "1999"],
-        answer: 1
-      },
-      {
-        q: "Who scored the winning goal for France in the 1998 World Cup final?",
-        options: ["Zinedine Zidane", "Thierry Henry", "Emmanuel Petit", "David Trezeguet"],
-        answer: 0
-      },
-      {
-        q: "Which player has won the most Ballon d'Or awards as of 2024?",
-        options: ["Cristiano Ronaldo", "Lionel Messi", "Ronaldinho", "Michel Platini"],
-        answer: 1
-      },
-      {
-        q: "What nationality is the legendary goalkeeper Lev Yashin?",
-        options: ["Ukrainian", "German", "Soviet/Russian", "Hungarian"],
-        answer: 2
-      },
-      {
-        q: "Which club did Zinedine Zidane play for before joining Real Madrid?",
-        options: ["Marseille", "Monaco", "Juventus", "Lyon"],
-        answer: 2
-      },
-      {
-        q: "How many times has Brazil won the FIFA World Cup?",
-        options: ["4", "5", "6", "3"],
-        answer: 1
-      },
-      {
-        q: "Who was the top scorer (Golden Boot) at the 2014 FIFA World Cup?",
-        options: ["Lionel Messi", "Neymar", "Thomas Müller", "James Rodríguez"],
-        answer: 2
-      }
+      { q: "Which keeper holds the PL record for most clean sheets?", options: ["Schmeichel","David Seaman","Petr Čech","Van der Sar"], answer: 2 },
+      { q: "What year did Ajax win their last Champions League?", options: ["1992","1995","1997","1999"], answer: 1 },
+      { q: "Who scored France's winner in the 1998 WC final?", options: ["Zidane","Thierry Henry","Emmanuel Petit","Trezeguet"], answer: 0 },
+      { q: "Who has won the most Ballon d'Or awards as of 2024?", options: ["Cristiano Ronaldo","Lionel Messi","Ronaldinho","Michel Platini"], answer: 1 },
+      { q: "What nationality is legendary keeper Lev Yashin?", options: ["Ukrainian","German","Soviet/Russian","Hungarian"], answer: 2 },
+      { q: "Which club did Zidane leave to join Real Madrid?", options: ["Marseille","Monaco","Juventus","Lyon"], answer: 2 },
+      { q: "How many times has Brazil won the FIFA World Cup?", options: ["4","5","6","3"], answer: 1 },
+      { q: "Who was the Golden Boot winner at the 2014 World Cup?", options: ["Messi","Neymar","Thomas Müller","James Rodríguez"], answer: 2 },
+      { q: "Which player holds the record for most international goals as of 2024?", options: ["Ronaldo","Messi","Ali Daei","Mokhtar Dahari"], answer: 0 },
+      { q: "In which year was the offside rule significantly changed?", options: ["1863","1883","1925","1950"], answer: 2 },
+      { q: "Who scored the fastest hat-trick in Premier League history?", options: ["Robbie Fowler","Michael Owen","Sadio Mané","Alan Shearer"], answer: 0 },
+      { q: "Which club has won the most Argentine Primera División titles?", options: ["Boca Juniors","San Lorenzo","River Plate","Racing Club"], answer: 2 },
+      { q: "Which country won the first UEFA European Championship in 1960?", options: ["Spain","Italy","Soviet Union","Yugoslavia"], answer: 2 },
+      { q: "How many clubs has CR7 played for as of 2024?", options: ["4","5","6","7"], answer: 1 },
+      { q: "Which player is known as 'The Divine Ponytail'?", options: ["Francesco Totti","Roberto Baggio","Alessandro Del Piero","Gianfranco Zola"], answer: 1 },
+      { q: "What is Pelé's real first name?", options: ["Eduardo","Edson","Ernesto","Evaristo"], answer: 1 },
     ]
   },
 
   fr: {
     easy: [
-      {
-        q: "Quel pays a remporté la Coupe du Monde FIFA 2022 ?",
-        options: ["France", "Brésil", "Argentine", "Allemagne"],
-        answer: 2
-      },
-      {
-        q: "Combien de joueurs composent une équipe de football sur le terrain ?",
-        options: ["9", "10", "11", "12"],
-        answer: 2
-      },
-      {
-        q: "Quel club est surnommé 'Les Diables Rouges' ?",
-        options: ["Arsenal", "Liverpool", "Manchester United", "AC Milan"],
-        answer: 2
-      },
-      {
-        q: "Qui est le meilleur buteur de tous les temps en Coupe du Monde ?",
-        options: ["Pelé", "Miroslav Klose", "Ronaldo (Brésil)", "Just Fontaine"],
-        answer: 1
-      },
-      {
-        q: "Dans quel pays se trouve le stade 'Santiago Bernabéu' ?",
-        options: ["Portugal", "Argentine", "Espagne", "Italie"],
-        answer: 2
-      },
-      {
-        q: "Quel joueur est surnommé 'CR7' ?",
-        options: ["Ronaldinho", "Cristiano Ronaldo", "Carlos Roa", "Carlos Valderrama"],
-        answer: 1
-      },
-      {
-        q: "Quelle est la durée normale d'un match de football ?",
-        options: ["80 min", "85 min", "90 min", "95 min"],
-        answer: 2
-      },
-      {
-        q: "Quel pays a remporté le plus de Coupes du Monde ?",
-        options: ["Allemagne", "Argentine", "Italie", "Brésil"],
-        answer: 3
-      }
+      { q: "Quel pays a remporté la Coupe du Monde 2022 ?", options: ["France","Brésil","Argentine","Allemagne"], answer: 2 },
+      { q: "Combien de joueurs sur le terrain par équipe ?", options: ["9","10","11","12"], answer: 2 },
+      { q: "Quel club est surnommé 'Les Diables Rouges' ?", options: ["Arsenal","Liverpool","Manchester United","AC Milan"], answer: 2 },
+      { q: "Meilleur buteur de l'histoire de la Coupe du Monde ?", options: ["Pelé","Miroslav Klose","Ronaldo (Brésil)","Just Fontaine"], answer: 1 },
+      { q: "Dans quel pays se trouve le Bernabéu ?", options: ["Portugal","Argentine","Espagne","Italie"], answer: 2 },
+      { q: "Quel joueur est surnommé 'CR7' ?", options: ["Ronaldinho","Cristiano Ronaldo","Carlos Roa","Valderrama"], answer: 1 },
+      { q: "Durée normale d'un match de football ?", options: ["80 min","85 min","90 min","95 min"], answer: 2 },
+      { q: "Quel pays a le plus de Coupes du Monde ?", options: ["Allemagne","Argentine","Italie","Brésil"], answer: 3 },
+      { q: "Quelle forme a un terrain de football ?", options: ["Carré","Cercle","Rectangle","Triangle"], answer: 2 },
+      { q: "Pour quelle sélection joue Kylian Mbappé ?", options: ["Belgique","Portugal","France","Espagne"], answer: 2 },
+      { q: "Quelles couleurs ont les cartons de l'arbitre ?", options: ["Rouge et bleu","Jaune et rouge","Vert et jaune","Orange et rouge"], answer: 1 },
+      { q: "Pour quel pays joue Lionel Messi ?", options: ["Brésil","Uruguay","Chili","Argentine"], answer: 3 },
+      { q: "Qu'est-ce qu'un 'hat-trick' au football ?", options: ["3 buts par un joueur","3 passes décisives","3 cartons jaunes","3 arrêts"], answer: 0 },
+      { q: "Comment s'appelle le derby Real Madrid - FC Barcelone ?", options: ["Derby de Madrid","El Clásico","Derby Catalan","La Manita"], answer: 1 },
+      { q: "Quelle équipe a remporté la première Coupe du Monde en 1930 ?", options: ["Brésil","Argentine","Uruguay","Italie"], answer: 2 },
+      { q: "Combien de remplaçants peuvent être sur le banc ?", options: ["5","7","9","11"], answer: 1 },
     ],
     medium: [
-      {
-        q: "Quel club Lionel Messi a-t-il rejoint après avoir quitté Barcelone en 2021 ?",
-        options: ["Juventus", "PSG", "Manchester City", "Bayern Munich"],
-        answer: 1
-      },
-      {
-        q: "En quelle année la FIFA a-t-elle été fondée ?",
-        options: ["1900", "1904", "1910", "1920"],
-        answer: 1
-      },
-      {
-        q: "Quelle nation a organisé la Coupe du Monde FIFA 2018 ?",
-        options: ["Brésil", "Allemagne", "Russie", "France"],
-        answer: 2
-      },
-      {
-        q: "Qui a remporté le Ballon d'Or en 2023 ?",
-        options: ["Kylian Mbappé", "Erling Haaland", "Lionel Messi", "Karim Benzema"],
-        answer: 2
-      },
-      {
-        q: "Quel club a remporté le plus de titres en Ligue des Champions de l'UEFA ?",
-        options: ["Barcelone", "Bayern Munich", "Real Madrid", "AC Milan"],
-        answer: 2
-      },
-      {
-        q: "Quel est le nombre maximum de remplaçants autorisés dans un match officiel ?",
-        options: ["3", "4", "5", "6"],
-        answer: 2
-      },
-      {
-        q: "Qui a marqué le but de la 'Main de Dieu' en 1986 ?",
-        options: ["Pelé", "Diego Maradona", "Michel Platini", "Gary Lineker"],
-        answer: 1
-      },
-      {
-        q: "Quel club anglais est surnommé 'Les Gunners' ?",
-        options: ["Chelsea", "Tottenham", "Arsenal", "West Ham"],
-        answer: 2
-      }
+      { q: "Quel club Messi a-t-il rejoint après Barcelone en 2021 ?", options: ["Juventus","PSG","Man City","Bayern"], answer: 1 },
+      { q: "En quelle année la FIFA a-t-elle été fondée ?", options: ["1900","1904","1910","1920"], answer: 1 },
+      { q: "Quelle nation a organisé la Coupe du Monde 2018 ?", options: ["Brésil","Allemagne","Russie","France"], answer: 2 },
+      { q: "Qui a gagné le Ballon d'Or 2023 ?", options: ["Mbappé","Haaland","Messi","Benzema"], answer: 2 },
+      { q: "Club avec le plus de titres en Ligue des Champions ?", options: ["Barcelone","Bayern","Real Madrid","AC Milan"], answer: 2 },
+      { q: "Nombre max de remplaçants autorisés en match officiel ?", options: ["3","4","5","6"], answer: 2 },
+      { q: "Qui a marqué le but 'Main de Dieu' en 1986 ?", options: ["Pelé","Maradona","Platini","Lineker"], answer: 1 },
+      { q: "Quel club anglais est surnommé 'The Gunners' ?", options: ["Chelsea","Tottenham","Arsenal","West Ham"], answer: 2 },
+      { q: "Qui a remporté la Ligue des Champions 2021-22 ?", options: ["Liverpool","Man City","Chelsea","Real Madrid"], answer: 3 },
+      { q: "Dans quel pays est né Cristiano Ronaldo ?", options: ["Espagne","Brésil","Portugal","Italie"], answer: 2 },
+      { q: "Quel club est surnommé 'La Vieille Dame' ?", options: ["AC Milan","Inter Milan","Juventus","Lazio"], answer: 2 },
+      { q: "Combien de fois la France a-t-elle remporté la Coupe du Monde ?", options: ["1","2","3","4"], answer: 1 },
+      { q: "Qui est le meilleur buteur de l'histoire du Real Madrid ?", options: ["Raúl","Benzema","Ronaldo","Zidane"], answer: 2 },
+      { q: "Quel est le stade du FC Barcelone ?", options: ["Wanda Metropolitano","Camp Nou","Bernabéu","San Siro"], answer: 1 },
+      { q: "Quel pays africain a atteint les demi-finales du Mondial 2022 ?", options: ["Nigeria","Sénégal","Maroc","Cameroun"], answer: 2 },
+      { q: "Qui était le meilleur buteur du Mondial 2018 ?", options: ["Messi","Ronaldo","Harry Kane","Lukaku"], answer: 2 },
     ],
     hard: [
-      {
-        q: "Quel gardien détient le record du plus grand nombre de clean sheets en Premier League ?",
-        options: ["Peter Schmeichel", "David Seaman", "Petr Čech", "Edwin van der Sar"],
-        answer: 2
-      },
-      {
-        q: "En quelle année l'Ajax a-t-il remporté son dernier titre en Ligue des Champions ?",
-        options: ["1992", "1995", "1997", "1999"],
-        answer: 1
-      },
-      {
-        q: "Qui a marqué le but décisif pour la France en finale de la Coupe du Monde 1998 ?",
-        options: ["Zinedine Zidane", "Thierry Henry", "Emmanuel Petit", "David Trezeguet"],
-        answer: 0
-      },
-      {
-        q: "Quel joueur a remporté le plus de Ballons d'Or en 2024 ?",
-        options: ["Cristiano Ronaldo", "Lionel Messi", "Ronaldinho", "Michel Platini"],
-        answer: 1
-      },
-      {
-        q: "Quelle est la nationalité du légendaire gardien Lev Yachine ?",
-        options: ["Ukrainienne", "Allemande", "Soviétique/Russe", "Hongroise"],
-        answer: 2
-      },
-      {
-        q: "Quel club Zinedine Zidane a-t-il quitté pour rejoindre le Real Madrid ?",
-        options: ["Marseille", "Monaco", "Juventus", "Lyon"],
-        answer: 2
-      },
-      {
-        q: "Combien de fois le Brésil a-t-il remporté la Coupe du Monde ?",
-        options: ["4", "5", "6", "3"],
-        answer: 1
-      },
-      {
-        q: "Qui était le meilleur buteur (Soulier d'Or) à la Coupe du Monde 2014 ?",
-        options: ["Lionel Messi", "Neymar", "Thomas Müller", "James Rodríguez"],
-        answer: 2
-      }
+      { q: "Gardien avec le record de clean sheets en Premier League ?", options: ["Schmeichel","Seaman","Petr Čech","Van der Sar"], answer: 2 },
+      { q: "Année du dernier titre de l'Ajax en C1 ?", options: ["1992","1995","1997","1999"], answer: 1 },
+      { q: "Qui a marqué le but vainqueur de la France en finale 1998 ?", options: ["Zidane","Henry","Petit","Trezeguet"], answer: 0 },
+      { q: "Joueur avec le plus de Ballons d'Or en 2024 ?", options: ["Ronaldo","Messi","Ronaldinho","Platini"], answer: 1 },
+      { q: "Nationalité du légendaire gardien Lev Yachine ?", options: ["Ukrainienne","Allemande","Soviétique/Russe","Hongroise"], answer: 2 },
+      { q: "Quel club Zidane a-t-il quitté pour le Real Madrid ?", options: ["Marseille","Monaco","Juventus","Lyon"], answer: 2 },
+      { q: "Combien de fois le Brésil a-t-il remporté la Coupe du Monde ?", options: ["4","5","6","3"], answer: 1 },
+      { q: "Meilleur buteur (Soulier d'Or) de la Coupe du Monde 2014 ?", options: ["Messi","Neymar","T. Müller","James"], answer: 2 },
+      { q: "Quel joueur détient le record de buts internationaux en 2024 ?", options: ["Ronaldo","Messi","Ali Daei","Mokhtar Dahari"], answer: 0 },
+      { q: "En quelle année la règle du hors-jeu a-t-elle été modifiée ?", options: ["1863","1883","1925","1950"], answer: 2 },
+      { q: "Qui a marqué le hat-trick le plus rapide en Premier League ?", options: ["Robbie Fowler","Michael Owen","Sadio Mané","Alan Shearer"], answer: 0 },
+      { q: "Quel club a le plus de titres en Primera División argentine ?", options: ["Boca Juniors","San Lorenzo","River Plate","Racing Club"], answer: 2 },
+      { q: "Quel pays a remporté le premier Euro UEFA en 1960 ?", options: ["Espagne","Italie","Union Soviétique","Yougoslavie"], answer: 2 },
+      { q: "Pour combien de clubs CR7 a-t-il joué en 2024 ?", options: ["4","5","6","7"], answer: 1 },
+      { q: "Quel joueur est surnommé 'La Queue de Cheval Divine' ?", options: ["Totti","Roberto Baggio","Del Piero","Zola"], answer: 1 },
+      { q: "Quel est le vrai prénom de Pelé ?", options: ["Eduardo","Edson","Ernesto","Evaristo"], answer: 1 },
     ]
   },
 
   ar: {
     easy: [
-      {
-        q: "أي منتخب فاز بكأس العالم FIFA 2022؟",
-        options: ["فرنسا", "البرازيل", "الأرجنتين", "ألمانيا"],
-        answer: 2
-      },
-      {
-        q: "كم عدد لاعبي فريق كرة القدم في الملعب؟",
-        options: ["9", "10", "11", "12"],
-        answer: 2
-      },
-      {
-        q: "أي نادٍ يُعرف بـ'الشياطين الحمر'؟",
-        options: ["أرسنال", "ليفربول", "مانشستر يونايتد", "ميلان"],
-        answer: 2
-      },
-      {
-        q: "من هو الهداف التاريخي في كأس العالم؟",
-        options: ["بيليه", "ميروسلاف كلوزي", "رونالدو البرازيلي", "جوست فونتين"],
-        answer: 1
-      },
-      {
-        q: "في أي بلد يقع ملعب 'سانتياغو برنابيو'؟",
-        options: ["البرتغال", "الأرجنتين", "إسبانيا", "إيطاليا"],
-        answer: 2
-      },
-      {
-        q: "أي لاعب يُلقّب بـ'CR7'؟",
-        options: ["رونالدينيو", "كريستيانو رونالدو", "كارلوس روا", "كارلوس فالديراما"],
-        answer: 1
-      },
-      {
-        q: "ما مدة مباراة كرة القدم الاعتيادية؟",
-        options: ["80 دقيقة", "85 دقيقة", "90 دقيقة", "95 دقيقة"],
-        answer: 2
-      },
-      {
-        q: "أي دولة فازت بأكبر عدد من كؤوس العالم؟",
-        options: ["ألمانيا", "الأرجنتين", "إيطاليا", "البرازيل"],
-        answer: 3
-      }
+      { q: "أي منتخب فاز بكأس العالم 2022؟", options: ["فرنسا","البرازيل","الأرجنتين","ألمانيا"], answer: 2 },
+      { q: "كم عدد لاعبي فريق كرة القدم في الملعب؟", options: ["9","10","11","12"], answer: 2 },
+      { q: "أي نادٍ يُعرف بـ'الشياطين الحمر'؟", options: ["أرسنال","ليفربول","مانشستر يونايتد","ميلان"], answer: 2 },
+      { q: "من هو الهداف التاريخي في كأس العالم؟", options: ["بيليه","كلوزي","رونالدو","فونتين"], answer: 1 },
+      { q: "في أي بلد يقع ملعب سانتياغو برنابيو؟", options: ["البرتغال","الأرجنتين","إسبانيا","إيطاليا"], answer: 2 },
+      { q: "أي لاعب يُلقّب بـ CR7؟", options: ["رونالدينيو","كريستيانو رونالدو","رواه","فالديراما"], answer: 1 },
+      { q: "ما مدة مباراة كرة القدم الرسمية؟", options: ["80 دقيقة","85 دقيقة","90 دقيقة","95 دقيقة"], answer: 2 },
+      { q: "أي دولة فازت بأكبر عدد من كؤوس العالم؟", options: ["ألمانيا","الأرجنتين","إيطاليا","البرازيل"], answer: 3 },
+      { q: "ما شكل أرضية ملعب كرة القدم؟", options: ["مربع","دائرة","مستطيل","مثلث"], answer: 2 },
+      { q: "ما منتخب كيليان مبابي؟", options: ["بلجيكا","البرتغال","فرنسا","إسبانيا"], answer: 2 },
+      { q: "ما ألوان بطاقات الحكم في كرة القدم؟", options: ["أحمر وأزرق","أصفر وأحمر","أخضر وأصفر","برتقالي وأحمر"], answer: 1 },
+      { q: "لأي منتخب يلعب ليونيل ميسي؟", options: ["البرازيل","أوروغواي","تشيلي","الأرجنتين"], answer: 3 },
+      { q: "ماذا يعني 'هاتريك' في كرة القدم؟", options: ["3 أهداف من لاعب واحد","3 تمريرات حاسمة","3 بطاقات صفراء","3 تصديات"], answer: 0 },
+      { q: "ما اسم الديربي بين ريال مدريد وبرشلونة؟", options: ["ديربي مدريد","الكلاسيكو","ديربي كتالونيا","لا مانيتا"], answer: 1 },
+      { q: "أي منتخب فاز بأول كأس عالم عام 1930؟", options: ["البرازيل","الأرجنتين","أوروغواي","إيطاليا"], answer: 2 },
+      { q: "كم لاعباً يمكن أن يجلس على دكة الاحتياط؟", options: ["5","7","9","11"], answer: 1 },
     ],
     medium: [
-      {
-        q: "أي نادٍ انضم إليه ميسي بعد مغادرة برشلونة عام 2021؟",
-        options: ["يوفنتوس", "باريس سان جيرمان", "مانشستر سيتي", "بايرن ميونخ"],
-        answer: 1
-      },
-      {
-        q: "في أي عام تأسست FIFA؟",
-        options: ["1900", "1904", "1910", "1920"],
-        answer: 1
-      },
-      {
-        q: "أي دولة استضافت كأس العالم FIFA 2018؟",
-        options: ["البرازيل", "ألمانيا", "روسيا", "فرنسا"],
-        answer: 2
-      },
-      {
-        q: "من فاز بجائزة الكرة الذهبية 2023؟",
-        options: ["كيليان مبابي", "إيرلينغ هالاند", "ليونيل ميسي", "كريم بنزيمة"],
-        answer: 2
-      },
-      {
-        q: "أي نادٍ فاز بأكبر عدد من ألقاب دوري أبطال أوروبا؟",
-        options: ["برشلونة", "بايرن ميونخ", "ريال مدريد", "ميلان"],
-        answer: 2
-      },
-      {
-        q: "ما الحد الأقصى لعدد التبديلات المسموح بها في المباراة؟",
-        options: ["3", "4", "5", "6"],
-        answer: 2
-      },
-      {
-        q: "من سجل هدف 'يد الله' عام 1986؟",
-        options: ["بيليه", "دييغو مارادونا", "ميشيل بلاتيني", "غاري لينيكر"],
-        answer: 1
-      },
-      {
-        q: "أي نادٍ إنجليزي يُلقّب بـ'المدافعون'؟",
-        options: ["تشيلسي", "توتنهام", "أرسنال", "وست هام"],
-        answer: 2
-      }
+      { q: "أي نادٍ انضم إليه ميسي بعد برشلونة 2021؟", options: ["يوفنتوس","باريس سان جيرمان","مانشستر سيتي","بايرن"], answer: 1 },
+      { q: "في أي عام تأسست FIFA؟", options: ["1900","1904","1910","1920"], answer: 1 },
+      { q: "أي دولة استضافت كأس العالم 2018؟", options: ["البرازيل","ألمانيا","روسيا","فرنسا"], answer: 2 },
+      { q: "من فاز بالكرة الذهبية 2023؟", options: ["مبابي","هالاند","ميسي","بنزيمة"], answer: 2 },
+      { q: "أي نادٍ فاز بأكثر ألقاب دوري الأبطال؟", options: ["برشلونة","بايرن","ريال مدريد","ميلان"], answer: 2 },
+      { q: "أقصى عدد تبديلات مسموح به في المباراة؟", options: ["3","4","5","6"], answer: 2 },
+      { q: "من سجل هدف 'يد الله' 1986؟", options: ["بيليه","مارادونا","بلاتيني","لينيكر"], answer: 1 },
+      { q: "أي نادٍ إنجليزي يُلقّب بـ'المدافعون'؟", options: ["تشيلسي","توتنهام","أرسنال","وست هام"], answer: 2 },
+      { q: "من فاز بدوري أبطال أوروبا 2021-22؟", options: ["ليفربول","مانشستر سيتي","تشيلسي","ريال مدريد"], answer: 3 },
+      { q: "في أي بلد وُلد كريستيانو رونالدو؟", options: ["إسبانيا","البرازيل","البرتغال","إيطاليا"], answer: 2 },
+      { q: "أي نادٍ يُلقّب بـ'العجوز السيدة'؟", options: ["ميلان","إنتر","يوفنتوس","لاتسيو"], answer: 2 },
+      { q: "كم مرة فازت فرنسا بكأس العالم؟", options: ["1","2","3","4"], answer: 1 },
+      { q: "من هو الهداف التاريخي لريال مدريد؟", options: ["راؤول","بنزيمة","رونالدو","زيدان"], answer: 2 },
+      { q: "ما اسم ملعب برشلونة؟", options: ["واندا متروبوليتانو","كامب نو","برنابيو","سان سيرو"], answer: 1 },
+      { q: "أي منتخب أفريقي وصل لنصف نهائي مونديال 2022؟", options: ["نيجيريا","السنغال","المغرب","الكاميرون"], answer: 2 },
+      { q: "من كان الهداف في مونديال 2018؟", options: ["ميسي","رونالدو","هاري كين","لوكاكو"], answer: 2 },
     ],
     hard: [
-      {
-        q: "أي حارس مرمى يحمل رقم قياسي في أكثر شباك نظيفة بالدوري الإنجليزي؟",
-        options: ["شمايكل", "سيمان", "بيتر تشيك", "فان دير سار"],
-        answer: 2
-      },
-      {
-        q: "في أي عام فاز أياكس بآخر لقب له في دوري أبطال أوروبا؟",
-        options: ["1992", "1995", "1997", "1999"],
-        answer: 1
-      },
-      {
-        q: "من سجل هدف التأهل لفرنسا في نهائي كأس العالم 1998؟",
-        options: ["زيدان", "هنري", "بيتي", "تريزيغيه"],
-        answer: 0
-      },
-      {
-        q: "من فاز بأكبر عدد من جوائز الكرة الذهبية حتى 2024؟",
-        options: ["رونالدو", "ميسي", "رونالدينيو", "بلاتيني"],
-        answer: 1
-      },
-      {
-        q: "ما جنسية الحارس الأسطوري ليف ياشين؟",
-        options: ["أوكرانية", "ألمانية", "سوفيتية/روسية", "مجرية"],
-        answer: 2
-      },
-      {
-        q: "أي نادٍ غادره زيدان للانضمام لريال مدريد؟",
-        options: ["مارسيليا", "موناكو", "يوفنتوس", "ليون"],
-        answer: 2
-      },
-      {
-        q: "كم مرة فازت البرازيل بكأس العالم؟",
-        options: ["4", "5", "6", "3"],
-        answer: 1
-      },
-      {
-        q: "من كان الهداف الأعلى في كأس العالم 2014؟",
-        options: ["ميسي", "نيمار", "توماس مولر", "جيمس رودريغيز"],
-        answer: 2
-      }
+      { q: "أي حارس يمتلك رقم قياسي لأكثر شباك نظيفة بالدوري الإنجليزي؟", options: ["شمايكل","سيمان","بيتر تشيك","فان دير سار"], answer: 2 },
+      { q: "في أي عام فاز أياكس بآخر لقب له في دوري الأبطال؟", options: ["1992","1995","1997","1999"], answer: 1 },
+      { q: "من سجل هدف الفوز لفرنسا في نهائي 1998؟", options: ["زيدان","هنري","بيتي","تريزيغيه"], answer: 0 },
+      { q: "من فاز بأكثر جوائز كرة ذهبية حتى 2024؟", options: ["رونالدو","ميسي","رونالدينيو","بلاتيني"], answer: 1 },
+      { q: "ما جنسية الحارس ليف ياشين؟", options: ["أوكرانية","ألمانية","سوفيتية/روسية","مجرية"], answer: 2 },
+      { q: "أي نادٍ تركه زيدان للانضمام لريال مدريد؟", options: ["مارسيليا","موناكو","يوفنتوس","ليون"], answer: 2 },
+      { q: "كم مرة فازت البرازيل بكأس العالم؟", options: ["4","5","6","3"], answer: 1 },
+      { q: "من كان الهداف في كأس العالم 2014؟", options: ["ميسي","نيمار","مولر","جيمس"], answer: 2 },
+      { q: "من يمتلك رقم قياسي في أهداف المنتخبات الدولية عام 2024؟", options: ["رونالدو","ميسي","علي دائي","مختار دهاري"], answer: 0 },
+      { q: "في أي عام عُدّلت قاعدة التسلل بشكل جذري؟", options: ["1863","1883","1925","1950"], answer: 2 },
+      { q: "من سجل أسرع هاتريك في تاريخ الدوري الإنجليزي؟", options: ["روبي فاولر","مايكل أوين","ساديو ماني","شيرر"], answer: 0 },
+      { q: "أي نادٍ فاز بأكبر عدد من ألقاب الدوري الأرجنتيني؟", options: ["بوكا جونيورز","سان لورنزو","ريفر بليت","راسينج"], answer: 2 },
+      { q: "أي دولة فازت بأول بطولة أمم أوروبا عام 1960؟", options: ["إسبانيا","إيطاليا","الاتحاد السوفيتي","يوغوسلافيا"], answer: 2 },
+      { q: "لكم نادٍ لعب رونالدو (CR7) حتى 2024؟", options: ["4","5","6","7"], answer: 1 },
+      { q: "ما لقب اللاعب روبرتو باجيو الشهير؟", options: ["الذهبي","ذيل الحصان الإلهي","السحر الإيطالي","الأسطورة"], answer: 1 },
+      { q: "ما الاسم الحقيقي للاعب بيليه؟", options: ["إدواردو","إيدسون","إرنستو","إيفاريستو"], answer: 1 },
     ]
   }
 };
