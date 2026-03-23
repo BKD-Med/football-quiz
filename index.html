@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚽ Football Quiz</title>
+  <meta name="description" content="Test your football knowledge! Multiple choice quiz with Easy, Medium, and Hard difficulty levels." />
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── Feedback Toast (global overlay) ───────────────────── -->
+<div id="feedback-toast" class="feedback-toast"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     APP ROOT
+════════════════════════════════════════════════════════════ -->
+<div id="app">
+
+  <!-- ════════════════════════════════════════════════════════
+       SCREEN 1 — HOME
+  ═════════════════════════════════════════════════════════ -->
+  <div id="screen-home" class="screen">
+
+    <!-- Logo -->
+    <div>
+      <span class="logo-ball">⚽</span>
+      <div class="logo">FOOTBALL <span>QUIZ</span></div>
+      <p class="tagline" data-i18n="tagline">TEST YOUR FOOTBALL KNOWLEDGE</p>
+    </div>
+
+    <!-- Language -->
+    <div class="card">
+      <div class="section-label" data-i18n="chooseLang">CHOOSE LANGUAGE</div>
+      <div class="lang-btns">
+        <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+        <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-btn" data-lang="ar">🇩🇿 العربية</button>
+      </div>
+    </div>
+
+    <!-- Difficulty -->
+    <div class="card">
+      <div class="section-label" data-i18n="chooseDiff">CHOOSE DIFFICULTY</div>
+      <div class="diff-btns">
+        <button class="diff-btn active" data-diff="easy">
+          <span class="diff-icon">🌱</span>
+          <span data-i18n="easy">Easy</span>
+        </button>
+        <button class="diff-btn" data-diff="medium">
+          <span class="diff-icon">🔥</span>
+          <span data-i18n="medium">Medium</span>
+        </button>
+        <button class="diff-btn" data-diff="hard">
+          <span class="diff-icon">💀</span>
+          <span data-i18n="hard">Hard</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <button id="btn-start" class="btn-primary" data-i18n="kickoff">KICK OFF</button>
+    <button id="btn-home-lb" class="btn-secondary" data-i18n="leaderboard">Leaderboard</button>
+
+  </div><!-- /screen-home -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SCREEN 2 — GAME
+  ═════════════════════════════════════════════════════════ -->
+  <div id="screen-game" class="screen">
+
+    <!-- HUD row -->
+    <div class="hud">
+      <div class="hud-item score">
+        <span class="icon">⭐</span>
+        <span class="label" data-i18n="score">Score</span>
+        <span class="val" id="hud-score">0</span>
+      </div>
+
+      <div class="hud-item">
+        <span class="icon">📋</span>
+        <span class="val" id="hud-q">1/8</span>
+      </div>
+
+      <div class="hud-item lives">
+        <span class="icon">❤️</span>
+        <div id="hearts" class="hearts"></div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div id="progress-bar" class="progress-bar" style="width:0%"></div>
+    </div>
+
+    <!-- Question card -->
+    <div class="card">
+      <div class="question-meta">
+        <span id="q-label" class="q-num">QUESTION 1</span>
+        <span id="q-diff-label" style="color:var(--muted);font-size:0.75rem;letter-spacing:2px;">EASY</span>
+      </div>
+      <p id="question-text" class="question-text">Loading...</p>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-wrap">
+      <svg class="timer-svg" viewBox="0 0 74 74">
+        <circle class="timer-track" cx="37" cy="37" r="30"/>
+        <circle id="timer-fill" class="timer-fill" cx="37" cy="37" r="30"/>
+        <text id="timer-num" class="timer-num" x="37" y="37">10</text>
+      </svg>
+    </div>
+
+    <!-- Answer buttons (4) -->
+    <div class="answers">
+      <button class="ans-btn">
+        <span class="opt-letter">A</span>
+        <span class="opt-text">Option A</span>
+      </button>
+      <button class="ans-btn">
+        <span class="opt-letter">B</span>
+        <span class="opt-text">Option B</span>
+      </button>
+      <button class="ans-btn">
+        <span class="opt-letter">C</span>
+        <span class="opt-text">Option C</span>
+      </button>
+      <button class="ans-btn">
+        <span class="opt-letter">D</span>
+        <span class="opt-text">Option D</span>
+      </button>
+    </div>
+
+  </div><!-- /screen-game -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SCREEN 3 — RESULTS
+  ═════════════════════════════════════════════════════════ -->
+  <div id="screen-result" class="screen">
+
+    <div id="result-trophy" class="result-trophy">🏆</div>
+    <div id="result-title" class="result-title" data-i18n="gameOver">GAME OVER</div>
+
+    <div class="result-score-big" id="result-score-display">0</div>
+    <p style="color:var(--muted);font-size:0.85rem;text-align:center;" data-i18n="youScored">YOU SCORED</p>
+
+    <!-- Stat chips -->
+    <div class="result-stats">
+      <div class="stat-chip">
+        <div class="sv" id="stat-correct">0</div>
+        <div class="sl" data-i18n="correct_c">Correct</div>
+      </div>
+      <div class="stat-chip">
+        <div class="sv" id="stat-wrong" style="color:var(--red);">0</div>
+        <div class="sl" data-i18n="wrong_c">Wrong</div>
+      </div>
+      <div class="stat-chip">
+        <div class="sv" id="stat-acc" style="color:var(--neon2);">0%</div>
+        <div class="sl" data-i18n="accuracy">Accuracy</div>
+      </div>
+    </div>
+
+    <!-- Save score input -->
+    <div class="card" style="padding:18px 24px;">
+      <div class="section-label" data-i18n="enterName">Enter name to save score</div>
+      <input id="result-name-input" class="name-input" type="text" maxlength="20" />
+    </div>
+
+    <!-- Action buttons -->
+    <div class="btn-row">
+      <button id="btn-play-again" class="btn-primary" data-i18n="playAgain">PLAY AGAIN</button>
+      <button id="btn-show-lb" class="btn-primary" style="background:linear-gradient(135deg,#8b6914,#ffd600);color:#111;" data-i18n="showBoard">LEADERBOARD</button>
+    </div>
+    <button id="btn-result-home" class="btn-secondary" data-i18n="backHome">HOME</button>
+
+  </div><!-- /screen-result -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SCREEN 4 — LEADERBOARD
+  ═════════════════════════════════════════════════════════ -->
+  <div id="screen-lb" class="screen">
+
+    <div class="logo-ball" style="font-size:2.5rem;">🏅</div>
+    <div id="lb-title-text" class="lb-title" data-i18n="topScores">TOP SCORES</div>
+
+    <div class="card" style="padding:16px 20px;">
+      <ul id="lb-list" class="lb-list">
+        <!-- Populated by JS -->
+      </ul>
+    </div>
+
+    <div class="btn-row">
+      <button id="btn-lb-play" class="btn-primary" data-i18n="playAgain">PLAY AGAIN</button>
+      <button id="btn-lb-home" class="btn-secondary" data-i18n="backHome">HOME</button>
+    </div>
+
+  </div><!-- /screen-lb -->
+
+</div><!-- /app -->
+
+<!-- ── Scripts (questions must load before game logic) ────── -->
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
